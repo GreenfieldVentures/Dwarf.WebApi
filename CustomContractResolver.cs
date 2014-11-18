@@ -35,7 +35,7 @@ namespace Dwarf.WebApi
 
             var orderedProperties = properties.OrderBy(p => p.Order ?? -1).ToList();
             orderedProperties.Move(orderedProperties.FirstOrDefault(x => x.PropertyName == "id"), 0);
-            orderedProperties.Move(orderedProperties.FirstOrDefault(x => x.PropertyName == "isStored"), 1);
+            orderedProperties.Move(orderedProperties.FirstOrDefault(x => x.PropertyName == "IsSaved"), 1);
 
             return orderedProperties;
         }
