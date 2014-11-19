@@ -14,8 +14,8 @@ When creating controllers for your model you can enherit from DwarfController<T>
 
 Example of a full featured controller
 ```csharp
-    public class PersonController : DwarfController<Person>
-    {
-    }
+public class PersonController : DwarfController<Person>
+{
+}
 ```
 
