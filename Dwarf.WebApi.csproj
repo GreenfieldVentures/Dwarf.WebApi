@@ -3,6 +3,7 @@
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Framework Condition=" '$(Framework)' == '' ">NET451</Framework>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{977E7DF7-D986-41B2-B7CC-672DAEB3868B}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -13,28 +14,61 @@
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <!--NET45-->
+  <PropertyGroup Condition=" '$(Framework)' == 'NET45' And '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <!-- Set the TargetFrameworkVersion here. This is the variable to tell ms build what .net framework to target.-->
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Release\Dwarf.WebApi\$(Framework)\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Framework)' == 'NET45' And '$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <!-- Set the TargetFrameworkVersion here. This is the variable to tell ms build what .net framework to target.-->
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>bin\$(Configuration)\$(Framework)\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+  <!--NET451-->
+  <PropertyGroup Condition=" '$(Framework)' == 'NET451' And '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <!-- Set the TargetFrameworkVersion here. This is the variable to tell ms build what .net framework to target.-->
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\Release\</OutputPath>
+    <OutputPath>..\Release\Dwarf.WebApi\$(Framework)\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>..\Release\DwarfWebApi.xml</DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Framework)' == 'NET451' And '$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <!-- Set the TargetFrameworkVersion here. This is the variable to tell ms build what .net framework to target.-->
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\$(Configuration)\$(Framework)\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Newtonsoft.Json.6.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -79,14 +113,15 @@
     <ProjectReference Include="..\Dwarf\Dwarf.csproj">
       <Project>{8ac96572-0105-47a3-83aa-3fd6061fbd06}</Project>
       <Name>Dwarf</Name>
+      <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
-  </Target>
+  </Target> -->
   <Target Name="AfterBuild">
+    <MSBuild Condition=" '$(Framework)' == 'NET451'" Projects="$(MSBuildProjectFile)" Properties="Framework=NET45" RunEachTargetSeparately="true" />
   </Target>
-  -->
 </Project>
