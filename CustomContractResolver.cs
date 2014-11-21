@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
+using System.Runtime.Serialization;
 using Dwarf.Extensions;
 using Dwarf.Interfaces;
 using Newtonsoft.Json;
@@ -28,6 +30,9 @@ namespace Dwarf.WebApi
             foreach (var member in members)
             {
                 var property = CreateProperty(member, memberSerialization);
+                
+                if (member.GetCustomAttributes<IgnoreDataMemberAttribute>().Any())
+                    continue;
 
                 if (property != null)
                     properties.AddProperty(property);
@@ -35,7 +40,7 @@ namespace Dwarf.WebApi
 
             var orderedProperties = properties.OrderBy(p => p.Order ?? -1).ToList();
             orderedProperties.Move(orderedProperties.FirstOrDefault(x => x.PropertyName == "id"), 0);
-            orderedProperties.Move(orderedProperties.FirstOrDefault(x => x.PropertyName == "IsSaved"), 1);
+            orderedProperties.Move(orderedProperties.FirstOrDefault(x => x.PropertyName == "isSaved"), 1);
 
             return orderedProperties;
         }
