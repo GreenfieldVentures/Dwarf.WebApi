@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.Serialization;
-using Dwarf.Extensions;
-using Dwarf.Interfaces;
+using Evergreen.Dwarf.Extensions;
+using Evergreen.Dwarf.Interfaces;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
-namespace Dwarf.WebApi
+namespace Evergreen.Dwarf.WebApi
 {
     /// <summary>
     /// Extends CamelCasePropertyNamesContractResolver but re-orders the properties to support the built-in OneToMany and ManyToMany collections

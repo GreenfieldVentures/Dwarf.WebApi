@@ -14,10 +14,9 @@ using System.Web.Http.Controllers;
 using System.Web.Http.Filters;
 using System.Web.Http.Metadata;
 using System.Web.Http.Metadata.Providers;
-using Dwarf;
-using Dwarf.Interfaces;
+using Evergreen.Dwarf.Interfaces;
 
-namespace Dwarf.WebApi
+namespace Evergreen.Dwarf.WebApi
 {
     /// <summary>
     /// Helper for hooking up Dwarf to WebApi

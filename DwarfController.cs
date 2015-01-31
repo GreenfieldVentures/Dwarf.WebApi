@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using Dwarf;
 
-namespace Dwarf.WebApi
+namespace Evergreen.Dwarf.WebApi
 {
     /// <summary>
     /// Base WebApiController for IDwarf

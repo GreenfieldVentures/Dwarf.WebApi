@@ -6,12 +6,12 @@ using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
-using Dwarf.Extensions;
-using Dwarf.Interfaces;
+using Evergreen.Dwarf.Extensions;
+using Evergreen.Dwarf.Interfaces;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace Dwarf.WebApi
+namespace Evergreen.Dwarf.WebApi
 {
     /// <summary>
     /// JsonConverter to handle the IDwarfs
