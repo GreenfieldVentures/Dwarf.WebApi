@@ -1,0 +1,1 @@
+nuget pack Dwarf.WebApi.csproj -Properties Configuration=Release

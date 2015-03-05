@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<package >
+    <metadata>
+        <id>Dwarf.WebApi</id>
+        <version>$version$</version>
+        <title>$title$</title>
+        <authors>$author$</authors>
+        <owners>$author$</owners>
+        <licenseUrl>https://raw.githubusercontent.com/GreenfieldVentures/Dwarf.WebApi/master/LICENSE</licenseUrl>
+        <projectUrl>https://github.com/GreenfieldVentures/Dwarf.WebApi</projectUrl>
+        <iconUrl>http://i.imgur.com/fyFlOMf.png</iconUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>An extension to Dwarf enabling Dwarf objects in controllers</description>
+        <summary>An extension to Dwarf enabling Dwarf objects in controllers</summary>
+        <releaseNotes></releaseNotes>
+        <copyright>$copyright$</copyright>
+        <tags>Dwarf WebApi</tags>
+
+    </metadata>
+    <files>
+        <file src="..\Release\Dwarf.WebApi\net45\DwarfWebApi.dll" target="lib\net45" />
+        <file src="..\Release\Dwarf.WebApi\net45\DwarfWebApi.pdb" target="lib\net45" />
+        <file src="..\Release\Dwarf.WebApi\net451\DwarfWebApi.dll" target="lib\net451" />
+        <file src="..\Release\Dwarf.WebApi\net451\DwarfWebApi.pdb" target="lib\net451" />
+    </files>
+</package>

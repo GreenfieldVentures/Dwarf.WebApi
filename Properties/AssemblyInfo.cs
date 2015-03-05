@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Dwarf.WebApi")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("An extension to Dwarf enabling Dwarf objects in controllers")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("GreenField Sweden")]
+[assembly: AssemblyCompany("GreenField Ventures")]
 [assembly: AssemblyProduct("Dwarf.WebApi")]
-[assembly: AssemblyCopyright("Copyright © GreenField Sweden 2014")]
+[assembly: AssemblyCopyright("Copyright © GreenField Ventures 2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.14")]
-[assembly: AssemblyFileVersion("1.0.14")]
+[assembly: AssemblyVersion("1.0.16")]
+[assembly: AssemblyFileVersion("1.0.16")]
