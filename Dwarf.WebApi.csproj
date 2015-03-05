@@ -65,9 +65,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Dwarf, Version=1.0.15.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Dwarf.1.0.15.0\lib\net451\Dwarf.dll</HintPath>
+    <Reference Include="Dwarf">
+      <HintPath>..\packages\Dwarf.1.0.17.0\lib\$(Framework)\Dwarf.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
