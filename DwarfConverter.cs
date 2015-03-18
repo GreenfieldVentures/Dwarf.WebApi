@@ -34,6 +34,16 @@ namespace Evergreen.Dwarf.WebApi
             if (reader.TokenType == JsonToken.Null)
                 return null;
 
+            if (reader.TokenType == JsonToken.String)
+            {
+                var val = reader.Value;
+
+                if (val != null && !string.IsNullOrEmpty(val.ToString()))
+                    return DwarfHelper.Load(objectType, Guid.Parse(val.ToString()));
+
+                return null;
+            }
+
             var jObject = JObject.Load(reader);
             
             object obj = null;

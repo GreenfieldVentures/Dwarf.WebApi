@@ -30,6 +30,7 @@ namespace Evergreen.Dwarf.WebApi
         {
             config.Formatters.JsonFormatter.SerializerSettings.Converters.Add(new DwarfListConverter());
             config.Formatters.JsonFormatter.SerializerSettings.Converters.Add(new DwarfConverter());
+            config.Formatters.JsonFormatter.SerializerSettings.Converters.Add(new JsonIdOnlyConverter());
             config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CustomContractResolver();
             config.Services.Replace(typeof(System.Web.Http.Metadata.ModelMetadataProvider), new DataAnnotationsModelMetadataProviderEx());
 

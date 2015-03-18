@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.Serialization;
+using Evergreen.Dwarf.Attributes;
 using Evergreen.Dwarf.Extensions;
 using Evergreen.Dwarf.Interfaces;
 using Newtonsoft.Json;
@@ -15,6 +16,8 @@ namespace Evergreen.Dwarf.WebApi
     /// </summary>
     public class CustomContractResolver : CamelCasePropertyNamesContractResolver
     {
+        private static readonly JsonIdOnlyConverter jsonIdOnlyConverter = new JsonIdOnlyConverter();
+
         protected override IList<JsonProperty> CreateProperties(Type type, MemberSerialization memberSerialization)
         {
             if (!type.Implements<IDwarf>())
@@ -33,6 +36,12 @@ namespace Evergreen.Dwarf.WebApi
                 
                 if (member.GetCustomAttributes<IgnoreDataMemberAttribute>().Any())
                     continue;
+
+                if (member.GetCustomAttributes<JsonIdOnlyAttribute>().Any())
+                {
+                    property.PropertyName += "Id";
+                    property.Converter = jsonIdOnlyConverter;
+                }
 
                 if (property != null)
                     properties.AddProperty(property);
